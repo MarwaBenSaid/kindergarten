@@ -1,0 +1,135 @@
+package tn.esprit.spring.entity;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+
+
+@Entity
+public class kindergarten  implements Serializable {
+	
+	private static final long serialVersionUID = 1050052174953534337L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idkindergarten;
+	private String name;
+	private String description;
+	private String email ;
+	private String logo ;
+	@Temporal(TemporalType.DATE)
+	private Date date;
+	private String nbremployee ;
+	private float cost ;
+
+	
+	
+	public kindergarten() {
+		super();
+	}
+
+
+
+
+	public kindergarten(int idkindergarten, String name) {
+		super();
+		this.idkindergarten = idkindergarten;
+		this.name = name;
+	}
+
+
+
+
+	public kindergarten(int idkindergarten, String name, String description, String email, String logo, Date date,
+			String nbremployee, float cost) {
+		super();
+		this.idkindergarten = idkindergarten;
+		this.name = name;
+		this.description = description;
+		this.email = email;
+		this.logo = logo;
+		this.date = date;
+		this.nbremployee = nbremployee;
+		this.cost = cost;
+	}
+	
+
+	
+	
+	public int getIdkindergarten() {
+		return idkindergarten;
+	}
+
+	public void setIdkindergarten(int idkindergarten) {
+		this.idkindergarten = idkindergarten;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public String getNbremployee() {
+		return nbremployee;
+	}
+
+	public void setNbremployee(String nbremployee) {
+		this.nbremployee = nbremployee;
+	}
+
+	public float getCost() {
+		return cost;
+	}
+
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+
+
+	
+	
+	
+
+}
