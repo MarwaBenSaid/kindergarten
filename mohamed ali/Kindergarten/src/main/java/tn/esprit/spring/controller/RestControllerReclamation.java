@@ -24,7 +24,7 @@ public class RestControllerReclamation {
 		IReclamationService ireclamationservice;
 
 		// http://localhost:8083/SpringMVC/servlet/addReclamation
-		//{"idparent": 1,"firstname": "marwa","lastname": "ben said","address": "14 cite nour siliana","phone": 78871276,"picture": null,"email": " marwa@yahoo.fr","password": "123456"}
+		//{"idadmin": 1,"nameadmin": "daly","phone": 96025510,"datereclamation" :date,"nbreclamation":1}
 		
 		@PostMapping("/addReclamation")
 		@ResponseBody
@@ -39,7 +39,7 @@ public class RestControllerReclamation {
 		
 	 
 
-	    // URL : http://localhost:8083/SpringMVC/servlet/deleteParentById/1
+	    // URL : http://localhost:8083/SpringMVC/servlet/deleteReclamationById/1
 	    @DeleteMapping("/deleteReclamationById/{idreclamation}") 
 		@ResponseBody 
 		public void deleteReclamationById(@PathVariable("idreclamation")int reclamationId) {
@@ -48,16 +48,17 @@ public class RestControllerReclamation {
 		}
 	  
 	    
-	    // URL : http://localhost:8083/SpringMVC/servlet/getNombreParentJPQL
+	    // URL : http://localhost:8083/SpringMVC/servlet/getNombreReclamationJPQL
 	    @GetMapping(value = "getNombreReclamationJPQL")
 	    @ResponseBody
 		public int getNombreReclamationJPQL() {
 			
 			return ireclamationservice.getNombreReclamationJPQL();
+		
 		}
 
-		 // URL : http://localhost:8083/SpringMVC/servlet/getAllParents
-		@GetMapping(value = "/getAllParents")
+		 // URL : http://localhost:8083/SpringMVC/servlet/getAllReclamation
+		@GetMapping(value = "/getAllReclamation")
 	    @ResponseBody
 		public List<Reclamation> getAllReclamation() {
 			

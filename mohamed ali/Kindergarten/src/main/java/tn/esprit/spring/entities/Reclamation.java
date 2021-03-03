@@ -2,6 +2,7 @@ package tn.esprit.spring.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +23,8 @@ public class Reclamation implements Serializable {
 	private Date datereclamation ;
 	private int nbreclamation ;
 	
-	public Reclamation() {
-		super();
-	}
+	
+	
 	public Reclamation(int idreclamation, String titre, String description, Date datereclamation, int nbreclamation) {
 		super();
 		this.idreclamation = idreclamation;
@@ -32,15 +32,12 @@ public class Reclamation implements Serializable {
 		this.description = description;
 		this.datereclamation = datereclamation;
 		this.nbreclamation = nbreclamation;
+		
+	}
+	public Reclamation() {
+		super();
 	}
 	
-	public Reclamation(int idreclamation, String titre, String description, int nbreclamation) {
-		super();
-		this.idreclamation = idreclamation;
-		this.titre = titre;
-		this.description = description;
-		this.nbreclamation = nbreclamation;
-	}
 	public int getIdreclamation() {
 		return idreclamation;
 	}
@@ -71,6 +68,7 @@ public class Reclamation implements Serializable {
 	public void setNbreclamation(int nbreclamation) {
 		this.nbreclamation = nbreclamation;
 	}
+	
 	
 	
 	
