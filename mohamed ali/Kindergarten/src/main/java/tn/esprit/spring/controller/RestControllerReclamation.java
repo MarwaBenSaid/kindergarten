@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import tn.esprit.spring.entities.Reclamation;
 import tn.esprit.spring.services.IReclamationService;
 
@@ -24,7 +25,7 @@ public class RestControllerReclamation {
 		IReclamationService ireclamationservice;
 
 		// http://localhost:8083/SpringMVC/servlet/addReclamation
-		//{"idadmin": 1,"nameadmin": "daly","phone": 96025510,"datereclamation" :date,"nbreclamation":1}
+		//{"idreclamation": 1,"titre": "test","description":"rec sur test","date":date,"nbreclamation":1}
 		
 		@PostMapping("/addReclamation")
 		@ResponseBody
@@ -66,7 +67,13 @@ public class RestControllerReclamation {
 		}
 
 		  
-
+		@PostMapping("/save/{idadmin}")
+		public Reclamation addReclamation1 ( @RequestBody Reclamation reclamation,@PathVariable (value ="idadmin") int idadmin)
+		{
+			return ireclamationservice.saveReclamation(reclamation,idadmin);
+		}
+		
+		
 		   
 	}
 	

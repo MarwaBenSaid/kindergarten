@@ -1,13 +1,18 @@
 package tn.esprit.spring.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import java.util.Date;
 
 @Entity
@@ -17,12 +22,20 @@ public class Reclamation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idreclamation ;
+	@NotBlank
+	@Size(max = 10)
 	private String titre ;
+	@NotBlank
+	@Size(max = 50)
 	private String description ;
 	@Temporal(TemporalType.DATE)
 	private Date datereclamation ;
+	@NotNull(message= "nombre reclamation  may not be empty")
 	private int nbreclamation ;
 	
+	@ManyToOne
+	@JoinColumn(name="FK_TP_ID")
+	Admin admin;
 	
 	
 	public Reclamation(int idreclamation, String titre, String description, Date datereclamation, int nbreclamation) {
@@ -49,6 +62,12 @@ public class Reclamation implements Serializable {
 	}
 	public void setTitre(String titre) {
 		this.titre = titre;
+	}
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
 	public String getDescription() {
 		return description;

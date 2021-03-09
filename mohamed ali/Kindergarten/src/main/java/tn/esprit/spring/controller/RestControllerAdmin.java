@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,13 +23,12 @@ public class RestControllerAdmin {
 	
 	
 	// URL : http://localhost:8083/SpringMVC/servlet/addAdmin
-	//{"idreclamation": 1,"titre": "test","pictureadmin": "","emailadmin" :"dalyamri0@gmail.com","passwordadmin":"dalydaly"}
-			
-			@PostMapping("/addAdmin")
+		//{"idadmin": 1,"nameadmin": "daly","phone": 96025510,"datereclamation" :date,"nbreclamation":1}	
+			@PostMapping("/addAdmin/{idfiledb}")
 			@ResponseBody
-			public Admin addAdmin(@RequestBody Admin admin)
+			public Admin addAdmin(@RequestBody Admin admin,@PathVariable (value ="idfiledb") String idfiledb)
 			{
-				iadminservice.addAdmin(admin);
+				iadminservice.addAdmin(admin,idfiledb);
 				return admin;
 			}
 			
@@ -49,4 +49,8 @@ public class RestControllerAdmin {
 			iadminservice.updateAdmin(admin);
 			return admin ;
 			}
+			
+			
+			
+			
 }

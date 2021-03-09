@@ -15,5 +15,6 @@ public interface IReclamationService {
 	public void deleteReclamation(int reclamationid) ;
 
 	public int getNombreReclamationJPQL();
-
+	
+	public Reclamation saveReclamation(Reclamation reclamation, int idadmin);
 }
