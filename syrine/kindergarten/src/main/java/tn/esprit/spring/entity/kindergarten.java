@@ -1,11 +1,13 @@
 package tn.esprit.spring.entity;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,6 +29,8 @@ public class kindergarten  implements Serializable {
 	private Date date;
 	private String nbremployee ;
 	private float cost ;
+	@OneToMany(mappedBy="kindergarten")
+	private Set<Activity> activity;
 
 	
 	

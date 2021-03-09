@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
@@ -19,14 +22,14 @@ public class Activity  implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateA;
 	private String description ;
-	private String picture ;
-
-	//@ManyToOne
-	 //@JoinColumn(name="FK_KINDERGARTEN_ID")
-	 
-	//kindergarten //kindergartens;
+	@ManyToOne
+	@JoinColumn(name="FK_TP_ID")
+	kindergarten kindergarten;
 
 	
+	@OneToOne()
+	@JoinColumn(name="FK_TPA_ID")
+    private FileDB filedb;
 	public Activity() {
 		super();
 	}
@@ -41,13 +44,16 @@ public class Activity  implements Serializable {
 
 
 
-	public Activity(int idActivity, Date dateA, String description, String picture) {
+	
+
+	public Activity(int idActivity, Date dateA, String description) {
 		super();
 		this.idActivity = idActivity;
 		this.dateA = dateA;
 		this.description = description;
-		this.picture = picture;
 	}
+
+
 
 	public int getIdActivity() {
 		return idActivity;
@@ -73,20 +79,32 @@ public class Activity  implements Serializable {
 		this.description = description;
 	}
 
-	public String getPicture() {
-		return picture;
+
+
+
+
+	public kindergarten getKindergarten() {
+		return kindergarten;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+
+
+	public void setKindergarten(kindergarten kindergarten) {
+		this.kindergarten = kindergarten;
 	}
 
-	//public kindergarten getKindergartens() {
-		//return kindergartens;
-	//}
 
-	//public void setKindergartens(kindergarten kindergartens) {
-		//this.kindergartens = kindergartens;
-	//}
+
+	public FileDB getFiledb() {
+		return filedb;
+	}
+
+
+
+	public void setFiledb(FileDB filedb) {
+		this.filedb = filedb;
+	}
+
+	
 	
 }

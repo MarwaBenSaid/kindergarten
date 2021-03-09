@@ -1,4 +1,4 @@
-package tn.esprit.spring.controller;
+  package tn.esprit.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +18,7 @@ public class RestControllerActivity {
 
 	@Autowired
 	IActivityService iactivityservice;
+	@Autowired 
 	IkindergartenService ikindergartenservice;
 
 	//http://localhost:8083/SpringMVC/servlet/addkActivity
@@ -53,5 +54,15 @@ public class RestControllerActivity {
 				iactivityservice.deleteActivity(activityid);
 				
 			}
-		  
+		    @PostMapping("/save/{idkindergarten}/{idfiledb}")
+			public Activity addActivity1 ( @RequestBody Activity activity,@PathVariable (value ="idkindergarten") int idkindergarten,@PathVariable (value ="idfiledb") String idfiledb)
+			{
+				return iactivityservice.saveActivity(activity,idkindergarten,idfiledb);
+			}
+		    
+		   /* @PostMapping("/savek/{idkindergarten}")
+			public Activity addActivity2( @RequestBody Activity activity,@PathVariable (value ="idkindergarten") int idkindergarten)
+			{
+				return iactivityservice.saveActivity(activity,idkindergarten);
+			}*/
 }
