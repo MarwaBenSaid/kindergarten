@@ -31,6 +31,10 @@ public class Child  implements Serializable {
 	@JoinColumn(name="FK_PARENT_ID")
 	Parent parent;
 	
+	@ManyToOne
+	@JoinColumn(name="FK_Kind_ID")
+	Kindergarten kindergarten;
+	
 	public Child() {
 		super();
 	}
@@ -121,5 +125,11 @@ public class Child  implements Serializable {
 	}
 	
 	
+	public Kindergarten getKindergarten() {
+		return kindergarten;
+	}
 
+	public void setKindergarten(Kindergarten kindergarten) {
+		this.kindergarten = kindergarten;
+	}
 }

@@ -61,6 +61,7 @@ public class Parent implements Serializable {
 	@OneToMany(mappedBy="parent" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set <Message> messages ;
 	
+	
 
 	
 	public Parent() {
@@ -180,6 +181,10 @@ public class Parent implements Serializable {
 	public void setMessages(Set<Message> messages) {
 		this.messages = messages;
 	}
+	
+	
+
+	
 
 	@Override
 	public int hashCode() {

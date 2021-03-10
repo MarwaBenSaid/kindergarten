@@ -12,4 +12,5 @@ public interface IChildService {
 		public List<Child> getAllChildren();
 		public void deleteChild(int childid) ;
 		public int getNombreChildJPQL();
+		public String getChildFirstnameLastnameById(int childId);
 }

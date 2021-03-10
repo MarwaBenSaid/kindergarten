@@ -22,5 +22,7 @@ public interface IParentService {
 
 	public List<String> getAllParentNames();
 
+	public void affecterChildAKindergarten(int childId, int kindergartenId);
+
 
 }

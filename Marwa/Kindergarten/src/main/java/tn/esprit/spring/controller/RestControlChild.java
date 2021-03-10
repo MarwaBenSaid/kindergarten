@@ -43,14 +43,14 @@ public class RestControlChild {
 		}
 	
 	
-   /*
-   // URL : http://localhost:8083/SpringMVC/servlet/getParentFistnameById/2
-   @GetMapping(value = "getParentFirstnameById/{idparent}")
+   
+   // URL : http://localhost:8083/SpringMVC/servlet/getChildNameById/2
+   @GetMapping(value = "getChildNameById/{idchild}")
    @ResponseBody
-   public String getParentFirstnameLastnameById(@PathVariable("idparent")int parentId) {
-		return iparentservice.getParentFirstnameLastnameById(parentId);
+   public String getChildFirstnameLastnameById(@PathVariable("idchild")int childId) {
+		return ichildservice.getChildFirstnameLastnameById(childId);
 	}
-	*/
+
 
     // URL : http://localhost:8083/SpringMVC/servlet/deleteParentById/1
     @DeleteMapping("/deleteChildById/{idchild}") 

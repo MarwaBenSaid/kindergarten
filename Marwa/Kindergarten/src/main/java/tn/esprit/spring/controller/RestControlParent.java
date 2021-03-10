@@ -42,8 +42,6 @@ public class RestControlParent {
 		return parent;
 	}
 	
-	
-	
 	//<----------------------------------------->
 	
 	// Modifier Parent
@@ -105,5 +103,13 @@ public class RestControlParent {
 		
 		return iparentservice.getAllParentNames();
     }
+    
+    //<------------------------------------------->
+    
+ // http://localhost:8083/SpringMVC/servlet/affecterChildAKindergarten/1/1
+    @PutMapping(value = "/affecterChildAKindergarten/{idchild}/{idkindergarten}") 
+	public void affecterChildAKindergarten(@PathVariable("idchild")int childId, @PathVariable("idkindergarten")int kindergartenId) {
+		iparentservice.affecterChildAKindergarten(childId, kindergartenId);
+	}
 
 }
