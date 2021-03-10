@@ -15,9 +15,9 @@ package tn.esprit.spring.filter;
 	import org.springframework.stereotype.Component;
 
 	@Component
-	public class ParentFilter implements Filter {
+	public class TrafficFilter implements Filter {
 
-		private static Logger log = LoggerFactory.getLogger(ParentFilter.class);
+		private static Logger log = LoggerFactory.getLogger(TrafficFilter.class);
 
 		@Override
 		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

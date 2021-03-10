@@ -27,7 +27,10 @@ public class ParentServiceImpl implements IParentService {
 	
 	  //<----------------------------------------->
 		public void addParent(Parent p){
-		parentRepository.save(p);}
+		parentRepository.save(p);
+		
+		
+		}
 		//<----------------------------------------->
 		public List<Parent> getAllParents() {
 		 return (List<Parent>) parentRepository.findAll();

@@ -1,10 +1,11 @@
 package tn.esprit.spring.controller;
 
+
 import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,22 +15,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import tn.esprit.spring.entities.Parent;
+import tn.esprit.spring.services.ImageStorageService;
 import tn.esprit.spring.services.IParentService;
 
 
 
 
 @RestController
-@CrossOrigin
 public class RestControlParent {
 
 	@Autowired
 	IParentService iparentservice;
-	
+	@Autowired
+     ImageStorageService imageStorageService;
 
 	// http://localhost:8083/SpringMVC/servlet/addParent
-	//{"idparent": 1,"firstname": "marwa","lastname": "ben said","address": "14 cite nour siliana","phone": 78871276,"picture": null,"email": " marwa@yahoo.fr","password": "123456"}
+	//{"idparent": 1,"firstname": "marwa","lastname": "ben said","address": "14 rue république siliana","phone": 78871276,"picture": null,"email": " marwa@yahoo.fr","password": "123456"}
 	
 	@PostMapping("/addParent")
 	@ResponseBody
@@ -39,10 +42,12 @@ public class RestControlParent {
 		return parent;
 	}
 	
+	
+	
 	//<----------------------------------------->
 	
-	// Modifier User
-		// http://localhost:8081/SpringMVC/servlet/modify-parent
+	// Modifier Parent
+		// http://localhost:8083/SpringMVC/servlet/modify-parent
 		@PutMapping("/modify-parent")
 		@ResponseBody
 		public Parent updateParent(@RequestBody Parent parent) {
@@ -55,8 +60,9 @@ public class RestControlParent {
     // URL : http://localhost:8083/SpringMVC/servlet/deleteParentById/1
     @DeleteMapping("/deleteParentById/{idparent}") 
 	@ResponseBody 
-	public void deleteParentById(@PathVariable("idparent")int parentId) {
+	public ResponseEntity<String> deleteParentById(@PathVariable("idparent")int parentId) {
 		iparentservice.deleteParent(parentId);
+		  return ResponseEntity.ok().body(new String("Deleted successFully"));
 		
 	}
     

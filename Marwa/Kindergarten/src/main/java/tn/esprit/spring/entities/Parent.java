@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
 
 import org.hibernate.validator.constraints.Length;
 
@@ -41,8 +40,7 @@ public class Parent implements Serializable {
 	private String address ;
 	private int phone ;
 	@Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[]picture;
+	private byte[]picture;
 	@Email
 	@NotBlank
 	@Size(max = 50)
@@ -63,8 +61,7 @@ public class Parent implements Serializable {
 	@OneToMany(mappedBy="parent" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set <Message> messages ;
 	
-	@ManyToMany(mappedBy="parent", cascade = CascadeType.ALL)
-	private List <Kindergarten> kindergartens ;
+
 	
 	public Parent() {
 		super();
