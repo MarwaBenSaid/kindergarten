@@ -1,6 +1,0 @@
-package tn.esprit.spring.entities;
-
-public enum Quality {
-	
-		GOOD_PERSONALITY,CREATIVE,INTELLIGENT,FLEXIBLE,MOTIVATED,LEADERSHIP,ADAPDABILITY
-		}
