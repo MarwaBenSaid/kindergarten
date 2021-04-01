@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-4.0.xsd ">
+  
+ <aop:aspectj-autoproxy/>
+ 
+<!--  -->
+<bean name="kindergartenn" class="tn.esprit.spring.entity.kindergarten">
+	<property name="name" value="Dummy Name"></property>
+</bean>
+
+<bean name="kindergartenService" class=" tn.esprit.spring.service.kindergartenService">
+	<property name="kindergartenn" ref="kindergartenn"></property>
+</bean>
+
+<!-- Configure Aspect Beans, without this Aspects advices wont execute -->
+<bean name="kindergartenAspect" 
+class="tn.esprit.spring.aspect.kindergartenAspect"/>
+<bean name="kindergartenAspectPointCut" 
+class="tn.esprit.spring.aspect.kindergartenAspectPointCut"/>
+<bean name="kindergartenAspectJoinPoint" 
+class="tn.esprit.spring.aspect.kindergartenAspectJoinPoint"/>
+
+
+<bean name="kindergartenAroundAspect" 
+class="tn.esprit.spring.aspect.kindergartenAroundAspect"/>
+
+
+
+</beans>
