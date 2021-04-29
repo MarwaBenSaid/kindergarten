@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Kindergarten.Models.Activity>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idActivity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.Label("image")
+        </th>
+        <th></th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idActivity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dateA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.description)
+    </td>
+    <th>
+        <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
+    </th>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+    }
+   
+</table>
