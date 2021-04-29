@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KindergartenEmplois.Models.Offer>
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.jobtitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datedebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datefin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobdescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.functions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.result) {
+<tr>
+
+    <td>
+        @item.jobtitle
+    </td>
+    <td>
+        @item.datedebut
+    </td>
+    <td>
+        @item.datefin
+    </td>
+    <td>
+        @item.quality
+    </td>
+    <td>
+        @item.jobdescription
+    </td>
+    <td>
+        @item.functions
+    </td>
+    <td>
+        <form action="@Url.Action("Postuler", "Offer", new { id = item.idoffer})">
+                <input type="submit" value="Postuler" />
+        </form>
+
+    </td>
+
+  
+
+</tr>
+}
+
+</table>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<KindergartenEmplois.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job)
+        </th>
+      
+    </tr>
+
+    @foreach (var item in ViewBag.result)
+    {
+<tr>
+    <td>
+        @item.firstname
+    </td>
+    <td>
+        @item.lastname
+    </td>
+    <td>
+        @item.address
+    </td>
+    <td>
+        @item.phone
+    </td>
+    <td>
+        @item.age
+    </td>
+    <td>
+        @item.email
+    </td>
+    <td>
+        @item.description
+    </td>
+    <td>
+        @item.job
+    </td>
+   
+
+
+    <td>
+        <span class="text-muted float-right">
+            <a href="@Url.Action("Delete", "Candidate", new { idcandiate = item.idcandiate})" onclick="return confirm('Are you sure you want to delete this item?');">
+                &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i>&nbsp;&nbsp;
+            </a>
+        </span>
+    </td>
+
+</tr>
+
+            }
+        
+    </table>
