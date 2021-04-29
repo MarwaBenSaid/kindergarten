@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+C:\Users\syrin\Documents\workspace-sts-3.9.4.RELEASE\kindergarten\.metadata\.plugins\org.eclipse.jdt.core
+3435648363.index

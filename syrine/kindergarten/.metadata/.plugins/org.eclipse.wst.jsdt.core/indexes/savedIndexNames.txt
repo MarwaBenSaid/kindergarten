@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\syrin\Documents\workspace-sts-3.9.4.RELEASE\kindergarten\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+533172631.index
+3435648363.index
+3093767381.index
+960547677.index
+3645838527.index
+1380430851.index
